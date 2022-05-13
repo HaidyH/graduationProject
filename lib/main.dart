@@ -1,7 +1,8 @@
+import 'package:firebase/Signup_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'firebase_options.dart';
+//import 'firebase_options.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
               theme: ThemeData(
                 primarySwatch: Colors.blue,
               ),
-              home: const MyHomePage(title: 'Flutter Demo Home Page'),
+              home:SignUpPage(),
             );
           }
           return CircularProgressIndicator(
@@ -95,8 +96,7 @@ class _MyHomePageState extends State<MyHomePage> {
               'You have pushed the button this many times:',
             ),
             TextField(
-
-              autofocus: true,
+             autofocus: true,
               controller: myController ,
             ),
           ],
@@ -135,7 +135,7 @@ class Authentication {
     FirebaseAuth auth = FirebaseAuth.instance;
     auth.createUserWithEmailAndPassword(
         email: email, password: password).then((_) {
-      print("registeration success");
+          print("registeration success");
       //   Navigator.of(context).pushReplacement(
       //       // MaterialPageRoute(builder: (context) => VerifyScreen()));
       // });
@@ -153,6 +153,70 @@ class Authentication {
   }
 
 }
+//
+// class Signin extends StatelessWidget {
+//   const Signin({Key? key}) : super(key: key);
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       child: InkWell
+//         (
+//           onTap: (){
+//             Authentication.signup(context, "dd@gmail.co", "password");
+//           },
+//           child: Container(
+//             width: 100,
+//             height: 100,
+//             color: Colors.red,
+//
+//           )),
+//     );
+//   }
+// }
+
+//   // Future Signup () async {
+//   //   try{
+//   //     await FirebaseAuth.instance.createUserWithEmailAndPassword(email: "dody@gmail.com", password: "123");
+//   //
+//   //   }
+//   //  on FirebaseException catch(e) {
+//   //   // ignore: avoid_print
+//   //   print("haidy");
+//   //
+//   //   }
+//   // }
+//
+//
+// class Authentication {
+//
+//   static Future<FirebaseApp> initializeFirebase() async {
+//     FirebaseApp firebaseApp = await Firebase.initializeApp();
+//     return firebaseApp;
+//   }
+//
+//   static void signup(BuildContext context,String email, String password) {
+//     FirebaseAuth auth = FirebaseAuth.instance;
+//     auth.createUserWithEmailAndPassword(
+//         email: email, password: password).then((_) {
+//           print("registeration success");
+//       //   Navigator.of(context).pushReplacement(
+//       //       // MaterialPageRoute(builder: (context) => VerifyScreen()));
+//       // });
+//     });
+//   }
+//
+//   static void signin(BuildContext context, String email, String password) {
+//     final auth = FirebaseAuth.instance;
+//     auth.signInWithEmailAndPassword(email: email, password: password).then((_) {
+//       // Navigator.of(context).pushReplacement(
+//       //     MaterialPageRoute(builder: (context) => HomePage())
+//       // );
+//       print("Success logged in");
+//     });
+//   }
+//
+// }
 //
 // class Signin extends StatelessWidget {
 //   const Signin({Key? key}) : super(key: key);
