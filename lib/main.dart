@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-// import 'firebase_options.dart';
+import 'firebase_options.dart';
 
 void main() {
   runApp(const MyApp());
@@ -95,7 +95,8 @@ class _MyHomePageState extends State<MyHomePage> {
               'You have pushed the button this many times:',
             ),
             TextField(
-             autofocus: true,
+
+              autofocus: true,
               controller: myController ,
             ),
           ],
@@ -134,7 +135,7 @@ class Authentication {
     FirebaseAuth auth = FirebaseAuth.instance;
     auth.createUserWithEmailAndPassword(
         email: email, password: password).then((_) {
-          print("registeration success");
+      print("registeration success");
       //   Navigator.of(context).pushReplacement(
       //       // MaterialPageRoute(builder: (context) => VerifyScreen()));
       // });
